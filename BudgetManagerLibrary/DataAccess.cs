@@ -11,7 +11,7 @@ namespace BudgetManagerLibrary
     {
         Random random = new Random();
 
-        public static List<string> listOfExpenditures = new List<string>
+        public List<string> listOfExpenditures = new List<string>
         {
             "Auto",
             "Medicine",
@@ -19,34 +19,33 @@ namespace BudgetManagerLibrary
             "Family"
         };
 
-        public static List<string> listOfReciepts = new List<string>
+        public List<string> listOfReciepts = new List<string>
         {
             "Salary",
             "Dividends",
             "Illegal market :)"
         };
 
-        public List<RecieptsCategoryModel> GetRecieptList()
+        public List<MoneyModel> GetRecieptList(int total, List<string> list, int length)
         {
-            List<RecieptsCategoryModel> result = new List<RecieptsCategoryModel>();
-            int total = listOfReciepts.Count;
+            List<MoneyModel> result = new List<MoneyModel>();
             for (int i = 0; i < total; i++)
             {
-                result.Add(GetReciept(i + 1));
+                result.Add(GetReciept((i + 1),list,length));
             }
             return result;
         }
 
-        private RecieptsCategoryModel GetReciept(int id)
+        private MoneyModel GetReciept(int id, List<string> data, int length)
         {
-            RecieptsCategoryModel result = new RecieptsCategoryModel();
-            result.NameOfReciept = GetItemOfList(listOfReciepts);
+            MoneyModel result = new MoneyModel();
+            result.NameOfChange = GetItemOfList(data, length);
             return result;
         }
 
-        private string GetItemOfList (List<string> data)
+        private string GetItemOfList (List<string> data, int length)
         {
-            return data[random.Next(0, listOfReciepts.Count)];
+            return data[random.Next(0, length)];
         }
     }
 }

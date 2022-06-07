@@ -11,14 +11,14 @@ namespace FinancialManagerUI.ViewModels
 {
     public class ViewModel
     {
-        //public BindableCollection<ExpendituresCategoryModel> Expenditures { get; set; }
-        public BindableCollection<RecieptsCategoryModel> Reciepts { get; set; }
+        public BindableCollection<MoneyModel> Expenditures { get; set; }
+        public BindableCollection<MoneyModel> Reciepts { get; set; }
 
         public ViewModel()
         {
             DataAccess da = new DataAccess();
-            //Expenditures = new BindableCollection<ExpendituresCategoryModel>();
-            Reciepts = new BindableCollection<RecieptsCategoryModel>(da.GetRecieptList());
+            Expenditures = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfExpenditures.Count, da.listOfExpenditures, da.listOfReciepts.Count));
+            Reciepts = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfReciepts.Count, da.listOfReciepts, da.listOfReciepts.Count));
         }
     }
 }

@@ -7,13 +7,31 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="ExpenditureMenuWindow" Height="307" Width="493">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="22,44,0,0" VerticalAlignment="Top" Width="272"/>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="1" ItemsSource="{Binding Expenditures}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
         <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" HorizontalAlignment="Left" Margin="336,23,0,0" VerticalAlignment="Top" Height="55" Width="124"/>
         <Label Content="Choose one of the list or add your own category " HorizontalAlignment="Left" Margin="22,13,0,0" VerticalAlignment="Top"/>
         <Button Content="Add" HorizontalAlignment="Left" Margin="277,156,0,0" VerticalAlignment="Top" Width="119" Height="69" Click="Button_Click"/>
         <TextBox x:Name="amountToDecrement" HorizontalAlignment="Left" Margin="22,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
-        <TextBox x:Name="expenditureNotes" HorizontalAlignment="Left" Margin="23,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="38"/>
+        <TextBox x:Name="expenditureNotes" HorizontalAlignment="Left" Margin="23,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="38"/>
         <Label Content="Enter amount of money : " HorizontalAlignment="Left" Margin="23,87,0,0" VerticalAlignment="Top"/>
-        <Label Content="Enter notes if necessary :" HorizontalAlignment="Left" Margin="23,156,0,0" VerticalAlignment="Top"/>
+        <Label Content="Enter notes if necessary :" HorizontalAlignment="Left" Margin="22,146,0,0" VerticalAlignment="Top"/>
+
+        
+
     </Grid>
 </Window>

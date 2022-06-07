@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinancialManagerUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace FinancialManagerUI
         public ExpenditureMenuWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
