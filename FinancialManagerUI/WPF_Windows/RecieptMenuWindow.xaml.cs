@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BudgetManagerLibrary.Models;
+using FinancialManagerUI.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,28 @@ namespace FinancialManagerUI
         public RecieptMenuWindow()
         {
             InitializeComponent();
+            DataContext = new ViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (ValidateForm())
+            {
+                MoneyModel model = new MoneyModel();
+            }
+        }
+         
+        private bool ValidateForm()
+        {
+            bool output = true;
+            decimal amountOfMoney = 0;
+            bool validAmountToIncrement = decimal.TryParse(amountToIncrement.Text, out amountOfMoney);
+
+            if (!validAmountToIncrement || amountOfMoney <= 0 || amountToIncrement.Text == null)//we need only positive value and only numbers
+            {
+                output = false;
+            }
+            return output;
         }
     }
 }

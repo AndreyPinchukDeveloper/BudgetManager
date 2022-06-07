@@ -4,13 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialManagerUI"
-        mc:Ignorable="d"
-        Title="RecieptMenuWindow" Height="450" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="RecieptMenuWindow" Height="330" Width="494">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="244,148,0,0" VerticalAlignment="Top" Width="272"/>
-        <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" HorizontalAlignment="Left" Margin="557,149,0,0" VerticalAlignment="Top"/>
-        <Label Content="Choose one of the list or add your own category " HorizontalAlignment="Left" Margin="244,96,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="474,217,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="244,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+
+        <Grid.RowDefinitions> 
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ComboBox Grid.Row="1" ItemsSource="{Binding Reciepts}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        
+        <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" HorizontalAlignment="Left" Margin="298,22,0,0" VerticalAlignment="Top" Height="54" Width="132" RenderTransformOrigin="0.841,0.473"/>
+        <Label Content="Choose one of the list or add your own category " HorizontalAlignment="Left" Margin="9,9,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="305,175,0,0" VerticalAlignment="Top" Width="125" Click="Button_Click" Height="68"/>
+        <TextBox x:Name="amountToIncrement" HorizontalAlignment="Left" Margin="9,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="recieptNotes" HorizontalAlignment="Left" Margin="10,193,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221" Height="53"/>
+        <Label Content="Enter amount of money : " HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top"/>
+        <Label Content="Enter notes if necessary :" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

@@ -26,5 +26,23 @@ namespace FinancialManagerUI
             InitializeComponent();
             ManagerDB.Connect();
         }
+
+        private void Increment_Click(object sender, RoutedEventArgs e)
+        {
+            RecieptMenuWindow recieptMenuWindow = new RecieptMenuWindow();
+            recieptMenuWindow.Show();
+        }
+
+        private void Decrement_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenditureMenuWindow expenditureMenuWindow = new ExpenditureMenuWindow();
+            expenditureMenuWindow.Show();
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            HistoryWindow historyWindow = new HistoryWindow();
+            historyWindow.Show();
+        }
     }
 }

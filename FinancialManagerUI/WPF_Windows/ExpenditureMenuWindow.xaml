@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinancialManagerUI"
-        mc:Ignorable="d"
-        Title="ExpenditureMenuWindow" Height="450" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="ExpenditureMenuWindow" Height="307" Width="493">
     <Grid>
-        <ComboBox HorizontalAlignment="Left" Margin="244,148,0,0" VerticalAlignment="Top" Width="272"/>
-        <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" HorizontalAlignment="Left" Margin="557,149,0,0" VerticalAlignment="Top"/>
-        <Label Content="Choose one of the list or add your own category " HorizontalAlignment="Left" Margin="244,96,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add" HorizontalAlignment="Left" Margin="474,217,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="244,217,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox HorizontalAlignment="Left" Margin="22,44,0,0" VerticalAlignment="Top" Width="272"/>
+        <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" HorizontalAlignment="Left" Margin="336,23,0,0" VerticalAlignment="Top" Height="55" Width="124"/>
+        <Label Content="Choose one of the list or add your own category " HorizontalAlignment="Left" Margin="22,13,0,0" VerticalAlignment="Top"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="277,156,0,0" VerticalAlignment="Top" Width="119" Height="69" Click="Button_Click"/>
+        <TextBox x:Name="amountToDecrement" HorizontalAlignment="Left" Margin="22,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="135"/>
+        <TextBox x:Name="expenditureNotes" HorizontalAlignment="Left" Margin="23,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="206" Height="38"/>
+        <Label Content="Enter amount of money : " HorizontalAlignment="Left" Margin="23,87,0,0" VerticalAlignment="Top"/>
+        <Label Content="Enter notes if necessary :" HorizontalAlignment="Left" Margin="23,156,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
