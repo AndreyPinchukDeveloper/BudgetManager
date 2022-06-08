@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace BudgetManagerLibrary
+namespace BudgetManagerLibrary.DataAccess
 {
     public class SqlConnector : IDataConnection
     {
@@ -17,8 +19,10 @@ namespace BudgetManagerLibrary
         /// <returns> previos + the unique identifier </returns>
         public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
         {
-            model.Id = 1;
-            return model;
+            using (IDataConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("KeyOfDatabase")))
+            {
+
+            }
         }
     }
 }

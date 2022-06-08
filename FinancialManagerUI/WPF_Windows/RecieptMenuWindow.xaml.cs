@@ -1,4 +1,6 @@
-﻿using BudgetManagerLibrary.Models;
+﻿using BudgetManagerLibrary;
+using BudgetManagerLibrary.DataAccess;
+using BudgetManagerLibrary.Models;
 using FinancialManagerUI.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -29,9 +31,19 @@ namespace FinancialManagerUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //TODO-if true add this data to basedate
             if (ValidateForm())
             {
-                MoneyModel model = new MoneyModel();
+                MoneyModel model = new MoneyModel(amountToIncrement.Text);
+                foreach (IDataConnection database in GlobalConfig.Connections)
+                {
+                    database.CreateExpenditureOrReciept(model);
+                }
+                amountToIncrement.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information, please check it and try again !");
             }
         }
          
@@ -41,7 +53,7 @@ namespace FinancialManagerUI
             decimal amountOfMoney = 0;
             bool validAmountToIncrement = decimal.TryParse(amountToIncrement.Text, out amountOfMoney);
 
-            if (!validAmountToIncrement || amountOfMoney <= 0 || amountToIncrement.Text == null)//we need only positive value and only numbers
+            if (!validAmountToIncrement)//we need only positive value and only numbers
             {
                 output = false;
             }

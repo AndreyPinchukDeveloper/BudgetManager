@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BudgetManagerLibrary
 {
-    public class DataAccess
+    public class ComboBoxDataAccess
     {
         Random random = new Random();
 

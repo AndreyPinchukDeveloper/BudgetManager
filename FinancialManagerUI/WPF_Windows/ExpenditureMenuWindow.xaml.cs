@@ -13,6 +13,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BudgetManagerLibrary.Models;
+using BudgetManagerLibrary;
+using BudgetManagerLibrary.DataAccess;
 
 namespace FinancialManagerUI
 {
@@ -29,7 +32,33 @@ namespace FinancialManagerUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //TODO-if true add this data to basedate
+            if (ValidateForm())
+            {
+                MoneyModel model = new MoneyModel(amountToDecrement.Text);
+                foreach (IDataConnection database in GlobalConfig.Connections)
+                {
+                    database.CreateExpenditureOrReciept(model);
+                }
+                amountToDecrement.Text = "0";
+            }
+            else
+            {
+                MessageBox.Show("This form has invalid information, please check it and try again !");
+            }
+        }
 
+        private bool ValidateForm()
+        {
+            bool output = true;
+            decimal amountOfMoney = 0;
+            bool validAmountToIncrement = decimal.TryParse(amountToDecrement.Text, out amountOfMoney);
+
+            if (!validAmountToIncrement)//we need only negative value and only numbers
+            {
+                output = false;
+            }
+            return output;
         }
     }
 }

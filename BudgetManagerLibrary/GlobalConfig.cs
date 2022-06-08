@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BudgetManagerLibrary.DataAccess;
+using System.Configuration;
 
 namespace BudgetManagerLibrary
 {
@@ -20,9 +22,14 @@ namespace BudgetManagerLibrary
             if (textFiles)
             {
                 //TODO - create the text connection
-                TextConnection text = new TextConnection();
+                TextConnector text = new TextConnector();
                 Connections.Add(text);
             }
+        }
+
+        public static string ConnectionString(string name)
+        {
+            return ConfigurationManager.ConnectionString[name].ConnectionSting;
         }
     }
 }

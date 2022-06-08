@@ -16,7 +16,7 @@ namespace FinancialManagerUI.ViewModels
 
         public ViewModel()
         {
-            DataAccess da = new DataAccess();
+            ComboBoxDataAccess da = new ComboBoxDataAccess();
             Expenditures = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfExpenditures.Count, da.listOfExpenditures, da.listOfReciepts.Count));
             Reciepts = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfReciepts.Count, da.listOfReciepts, da.listOfReciepts.Count));
         }
