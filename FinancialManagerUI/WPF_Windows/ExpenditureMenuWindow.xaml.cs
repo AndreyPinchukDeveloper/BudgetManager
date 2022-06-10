@@ -36,11 +36,16 @@ namespace FinancialManagerUI
             if (ValidateForm())
             {
                 MoneyModel model = new MoneyModel(amountToDecrement.Text);
+                SqlConnector connector = new SqlConnector();
+                connector.CreateExpenditureOrReciept(model);
                 foreach (IDataConnection database in GlobalConfig.Connections)
                 {
                     database.CreateExpenditureOrReciept(model);
                 }
+
                 amountToDecrement.Text = "0";
+                expenditureNotes.Text = "";
+                cbExpenditures.Text = "";
             }
             else
             {

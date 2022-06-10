@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Configuration;
-using FinancialManagerUI.Classes;
 
 namespace FinancialManagerUI
 {
@@ -24,7 +23,6 @@ namespace FinancialManagerUI
         public MainWindow()
         {
             InitializeComponent();
-            ManagerDB.Connect();
         }
 
         private void Increment_Click(object sender, RoutedEventArgs e)

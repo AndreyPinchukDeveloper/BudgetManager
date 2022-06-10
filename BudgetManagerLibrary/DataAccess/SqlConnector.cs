@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
+using System.Configuration;
 using System.Data.SqlClient;
+using System.Data;
+using Dapper;
 
 namespace BudgetManagerLibrary.DataAccess
 {
@@ -19,8 +21,16 @@ namespace BudgetManagerLibrary.DataAccess
         /// <returns> previos + the unique identifier </returns>
         public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
         {
-            using (IDataConnection connection = new System.Data.SqlClient.SqlConnection(GlobalConfig.ConnectionString("KeyOfDatabase")))
+            using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("KeyOfDatabase")))
             {
+                var p = new DynamicParameters();
+                p.Add("@NameOfOperations", model.NameOfChange);
+                p.Add("@ValueToChange", model.ValueOfMoney);
+                p.Add("@Notes", model.Note);
+                p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+                connection.Execute("dbo.spTableOperations",p,commandType: CommandType.StoredProcedure);
+                model.Id = p.Get<int>("@Id");
+                return model;
 
             }
         }

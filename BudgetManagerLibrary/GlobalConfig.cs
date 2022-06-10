@@ -29,7 +29,7 @@ namespace BudgetManagerLibrary
 
         public static string ConnectionString(string name)
         {
-            return ConfigurationManager.ConnectionString[name].ConnectionSting;
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }

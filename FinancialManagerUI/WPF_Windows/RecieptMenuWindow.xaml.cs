@@ -35,11 +35,17 @@ namespace FinancialManagerUI
             if (ValidateForm())
             {
                 MoneyModel model = new MoneyModel(amountToIncrement.Text);
+                SqlConnector sqlConnector = new SqlConnector();
+                sqlConnector.CreateExpenditureOrReciept(model);
+
                 foreach (IDataConnection database in GlobalConfig.Connections)
                 {
                     database.CreateExpenditureOrReciept(model);
                 }
+
                 amountToIncrement.Text = "0";
+                recieptNotes.Text = "";
+                cbReciepts.Text = "";
             }
             else
             {
