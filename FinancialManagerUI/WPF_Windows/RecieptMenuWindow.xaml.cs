@@ -23,6 +23,7 @@ namespace FinancialManagerUI
     /// </summary>
     public partial class RecieptMenuWindow : Window
     {
+        
         public RecieptMenuWindow()
         {
             InitializeComponent();
@@ -34,12 +35,18 @@ namespace FinancialManagerUI
             //TODO-if true add this data to basedate
             if (ValidateForm())
             {
-                MoneyModel model = new MoneyModel(amountToIncrement.Text);
+                MoneyModel model = new MoneyModel(amountToIncrement.Text, cbReciepts.Text, recieptNotes.Text);
+                SqlConnector sqlConnector = new SqlConnector();
+                sqlConnector.CreateExpenditureOrReciept(model);
                 foreach (IDataConnection database in GlobalConfig.Connections)
                 {
                     database.CreateExpenditureOrReciept(model);
                 }
+                /*MainWindow mainWindow = new MainWindow();
+                mainWindow.MyOwnMoney.Text = amountToIncrement.Text;*/
                 amountToIncrement.Text = "0";
+                recieptNotes.Text = "";
+                cbReciepts.Text = "";
             }
             else
             {
@@ -51,9 +58,15 @@ namespace FinancialManagerUI
         {
             bool output = true;
             decimal amountOfMoney = 0;
+            
             bool validAmountToIncrement = decimal.TryParse(amountToIncrement.Text, out amountOfMoney);
 
             if (!validAmountToIncrement)//we need only positive value and only numbers
+            {
+                output = false;
+            }
+            
+            if (amountToIncrement.Text=="" && amountToIncrement.Text==null)
             {
                 output = false;
             }

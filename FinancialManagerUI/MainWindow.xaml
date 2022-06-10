@@ -7,7 +7,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="My Purse" Height="354" Width="499">
     <Grid>
-        <TextBox x:Name="MyOwnMoney" HorizontalAlignment="Left" Margin="172,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="MyOwnMoney" HorizontalAlignment="Left" Margin="172,53,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="Increment" Content="Increment" HorizontalAlignment="Left" Margin="67,122,0,0" VerticalAlignment="Top" Click="Increment_Click"/>
         <Button x:Name="Decrement" Content="Decrement" HorizontalAlignment="Left" Margin="360,117,0,0" VerticalAlignment="Top" Click="Decrement_Click"/>
         <Button x:Name="History" Content="ShowAllHistoryOfOperation" HorizontalAlignment="Left" Margin="172,183,0,0" VerticalAlignment="Top" Click="History_Click"/>

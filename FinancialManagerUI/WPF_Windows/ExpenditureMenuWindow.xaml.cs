@@ -36,6 +36,7 @@ namespace FinancialManagerUI
             if (ValidateForm())
             {
                 MoneyModel model = new MoneyModel(amountToDecrement.Text);
+
                 foreach (IDataConnection database in GlobalConfig.Connections)
                 {
                     database.CreateExpenditureOrReciept(model);

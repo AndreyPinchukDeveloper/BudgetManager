@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BudgetManagerLibrary.DataAccess;
-using System.Configuration;
 
 namespace BudgetManagerLibrary
 {
@@ -25,11 +25,12 @@ namespace BudgetManagerLibrary
                 TextConnector text = new TextConnector();
                 Connections.Add(text);
             }
+
         }
 
         public static string ConnectionString(string name)
         {
-            return ConfigurationManager.ConnectionString[name].ConnectionSting;
+            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
     }
 }
