@@ -9,11 +9,15 @@ namespace BudgetManagerLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
-        //TODO - Wire up(connect) MoneyModel for text files
-        public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
+        public MoneyModel CreateChange(MoneyModel model)
         {
             model.Id = 1;
             return model;
         }
+
+        /*public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
+        {
+            throw new NotImplementedException();
+        }*/
     }
 }

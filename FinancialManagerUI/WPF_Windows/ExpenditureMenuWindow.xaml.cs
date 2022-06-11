@@ -37,10 +37,15 @@ namespace FinancialManagerUI
             {
                 MoneyModel model = new MoneyModel(amountToDecrement.Text);
 
+<<<<<<< Updated upstream
                 foreach (IDataConnection database in GlobalConfig.Connections)
                 {
                     database.CreateExpenditureOrReciept(model);
                 }
+=======
+                GlobalConfig.Connection.CreateChange(model);
+
+>>>>>>> Stashed changes
                 amountToDecrement.Text = "0";
             }
             else

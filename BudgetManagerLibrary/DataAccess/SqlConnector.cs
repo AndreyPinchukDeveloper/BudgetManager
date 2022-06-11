@@ -18,7 +18,7 @@ namespace BudgetManagerLibrary.DataAccess
         /// </summary>
         /// <param name="model">The change information</param>
         /// <returns> previos + the unique identifier </returns>
-        public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
+        public MoneyModel CreateChange(MoneyModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("KeyOfDatabase")))
             {

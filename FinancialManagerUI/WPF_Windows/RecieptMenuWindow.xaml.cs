@@ -35,6 +35,7 @@ namespace FinancialManagerUI
             //TODO-if true add this data to basedate
             if (ValidateForm())
             {
+<<<<<<< Updated upstream
                 MoneyModel model = new MoneyModel(amountToIncrement.Text, cbReciepts.Text, recieptNotes.Text);
                 SqlConnector sqlConnector = new SqlConnector();
                 sqlConnector.CreateExpenditureOrReciept(model);
@@ -44,9 +45,16 @@ namespace FinancialManagerUI
                 }
                 /*MainWindow mainWindow = new MainWindow();
                 mainWindow.MyOwnMoney.Text = amountToIncrement.Text;*/
+=======
+                MoneyModel model = new MoneyModel(amountToIncrement.Text);
+
+                GlobalConfig.Connection.CreateChange(model);
+
+>>>>>>> Stashed changes
                 amountToIncrement.Text = "0";
                 recieptNotes.Text = "";
                 cbReciepts.Text = "";
+
             }
             else
             {
