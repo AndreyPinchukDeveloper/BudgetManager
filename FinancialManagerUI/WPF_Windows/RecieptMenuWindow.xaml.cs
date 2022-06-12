@@ -42,7 +42,6 @@ namespace FinancialManagerUI
                 amountToIncrement.Text = "0";
                 recieptNotes.Text = "";
                 cbReciepts.Text = "";
-
             }
             else
             {

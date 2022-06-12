@@ -23,7 +23,6 @@ namespace FinancialManagerUI
         {
             BudgetManagerLibrary.GlobalConfig.InitializeConnections(BudgetManagerLibrary.DatabaseType.Sql);//replace Sql to text to check how it work
             InitializeComponent();
-
         }
 
         private void Increment_Click(object sender, RoutedEventArgs e)
