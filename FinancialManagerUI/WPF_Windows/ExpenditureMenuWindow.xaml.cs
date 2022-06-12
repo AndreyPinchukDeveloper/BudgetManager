@@ -35,18 +35,13 @@ namespace FinancialManagerUI
             //TODO-if true add this data to basedate
             if (ValidateForm())
             {
-                MoneyModel model = new MoneyModel(amountToDecrement.Text);
+                MoneyModel model = new MoneyModel(amountToDecrement.Text, cbExpenditures.Text, expenditureNotes.Text);
 
-<<<<<<< Updated upstream
-                foreach (IDataConnection database in GlobalConfig.Connections)
-                {
-                    database.CreateExpenditureOrReciept(model);
-                }
-=======
                 GlobalConfig.Connection.CreateChange(model);
 
->>>>>>> Stashed changes
                 amountToDecrement.Text = "0";
+                expenditureNotes.Text = "";
+                cbExpenditures.Text = "";
             }
             else
             {
@@ -65,6 +60,12 @@ namespace FinancialManagerUI
                 output = false;
             }
             return output;
+        }
+
+        private void AddYourOwnCategory_Click(object sender, RoutedEventArgs e)
+        {
+            string newName = newCategoryName.Text;
+            ExpenditureMenuWindow.
         }
     }
 }

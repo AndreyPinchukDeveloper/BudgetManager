@@ -21,7 +21,7 @@ namespace FinancialManagerUI
     {
         public MainWindow()
         {
-            BudgetManagerLibrary.GlobalConfig.InitializeConnections(BudgetManagerLibrary.DatabaseType.Sql);
+            BudgetManagerLibrary.GlobalConfig.InitializeConnections(BudgetManagerLibrary.DatabaseType.Sql);//replace Sql to text to check how it work
             InitializeComponent();
 
         }
