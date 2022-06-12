@@ -10,6 +10,7 @@ namespace BudgetManagerLibrary.DataAccess
     public interface IDataConnection
     {
         //TODO - code here
-        MoneyModel CreateExpenditureOrReciept(MoneyModel model);
+        MoneyModel CreateChange(MoneyModel model);
+        
     }
 }

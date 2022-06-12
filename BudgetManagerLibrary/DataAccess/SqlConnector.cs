@@ -19,7 +19,7 @@ namespace BudgetManagerLibrary.DataAccess
         /// </summary>
         /// <param name="model">The change information</param>
         /// <returns> previos + the unique identifier </returns>
-        public MoneyModel CreateExpenditureOrReciept(MoneyModel model)
+        public MoneyModel CreateChange(MoneyModel model)
         {
             using (IDbConnection connection = new SqlConnection(GlobalConfig.ConnectionString("KeyOfDatabase")))
             {
@@ -27,11 +27,17 @@ namespace BudgetManagerLibrary.DataAccess
                 p.Add("@NameOfOperations", model.NameOfChange);
                 p.Add("@ValueToChange", model.ValueOfMoney);
                 p.Add("@Notes", model.Note);
+                p.Add("@Id", 0, dbType:DbType.Int32, direction: ParameterDirection.Output);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
                 connection.Execute("dbo.spTableOperations",p,commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
                 return model;
 
+                connection.Execute("spTableOperations", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@Id");
+
+                return model;
             }
         }
     }
