@@ -10,6 +10,7 @@ namespace BudgetManagerLibrary
     public class ComboBoxDataAccess
     {
         Random random = new Random();
+        int count = 0;
 
         public List<string> listOfExpenditures = new List<string>
         {
@@ -29,9 +30,11 @@ namespace BudgetManagerLibrary
         public List<MoneyModel> GetRecieptList(int total, List<string> list, int length)
         {
             List<MoneyModel> result = new List<MoneyModel>();
+            count = list.Count-1;
             for (int i = 0; i < total; i++)
             {
                 result.Add(GetReciept((i + 1),list,length));
+                count--;
             }
             return result;
         }
@@ -39,13 +42,13 @@ namespace BudgetManagerLibrary
         private MoneyModel GetReciept(int id, List<string> data, int length)
         {
             MoneyModel result = new MoneyModel();
-            result.NameOfChange = GetItemOfList(data, length);
+            result.NameOfChange = GetItemOfList(data);
             return result;
         }
 
-        private string GetItemOfList (List<string> data, int length)
+        private string GetItemOfList (List<string> data)
         {
-            return data[random.Next(0, length)];
+            return data[count];
         }
     }
 }

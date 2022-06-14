@@ -67,5 +67,33 @@ namespace FinancialManagerUI
             }
             return output;
         }
+
+        private void AddYourOwnCategory_Click(object sender, RoutedEventArgs e)
+        {
+            string newName = addNewRecieptCategory.Text;
+
+            if (ValidateForNewCategory(newName))
+            {
+                ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
+                comboDataAccess.listOfExpenditures.Add(newName);
+                DataContext = new ViewModel(comboDataAccess);
+
+            }
+            addNewRecieptCategory.Text = "";
+        }
+
+        private bool ValidateForNewCategory(string newCategory)
+        {
+            switch (newCategory)
+            {
+                case "":
+                    MessageBox.Show("Please, enter the correct name.");
+                    return false;
+                case null:
+                    return false;
+                default:
+                    return true;
+            }
+        }
     }
 }

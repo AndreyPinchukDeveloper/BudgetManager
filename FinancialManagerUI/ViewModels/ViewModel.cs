@@ -20,5 +20,10 @@ namespace FinancialManagerUI.ViewModels
             Expenditures = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfExpenditures.Count, da.listOfExpenditures, da.listOfReciepts.Count));
             Reciepts = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfReciepts.Count, da.listOfReciepts, da.listOfReciepts.Count));
         }
+        public ViewModel(ComboBoxDataAccess comboBoxData)
+        {
+            Expenditures = new BindableCollection<MoneyModel>(comboBoxData.GetRecieptList(comboBoxData.listOfExpenditures.Count, comboBoxData.listOfExpenditures, comboBoxData.listOfReciepts.Count));
+            Reciepts = new BindableCollection<MoneyModel>(comboBoxData.GetRecieptList(comboBoxData.listOfReciepts.Count, comboBoxData.listOfReciepts, comboBoxData.listOfReciepts.Count));
+        }
     }
 }

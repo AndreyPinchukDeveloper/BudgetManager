@@ -14,7 +14,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="cbExpenditures" Grid.Row="1" ItemsSource="{Binding Expenditures}" Margin="18,44,207,159">
+        
+        <ComboBox x:Name="cbExpenditures" ItemsSource="{Binding Expenditures}" Margin="22,44,203,159">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding FullName}"/>
