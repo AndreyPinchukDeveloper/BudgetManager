@@ -24,7 +24,7 @@ namespace FinancialManagerUI
             BudgetManagerLibrary.GlobalConfig.InitializeConnections(BudgetManagerLibrary.DatabaseType.Sql);//replace Sql to text to check how it work
             InitializeComponent();
         }
-
+        //TODO - value of my purse from database
         private void Increment_Click(object sender, RoutedEventArgs e)
         {
             RecieptMenuWindow recieptMenuWindow = new RecieptMenuWindow();

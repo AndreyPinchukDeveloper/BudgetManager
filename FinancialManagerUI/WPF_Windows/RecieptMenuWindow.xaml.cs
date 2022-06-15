@@ -75,7 +75,7 @@ namespace FinancialManagerUI
             if (ValidateForNewCategory(newName))
             {
                 ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
-                comboDataAccess.listOfExpenditures.Add(newName);
+                comboDataAccess.listOfReciepts.Add(newName);
                 DataContext = new ViewModel(comboDataAccess);
 
             }

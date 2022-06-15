@@ -29,7 +29,7 @@ namespace BudgetManagerLibrary.DataAccess
                 p.Add("@Notes", model.Note);
                 p.Add("@Id", 0, dbType:DbType.Int32, direction: ParameterDirection.Output);
                 p.Add("@Id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-                connection.Execute("dbo.spTableOperations",p,commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spTable_Operations",p,commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
                 return model;
 

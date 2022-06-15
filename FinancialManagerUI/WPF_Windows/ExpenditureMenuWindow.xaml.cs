@@ -70,11 +70,9 @@ namespace FinancialManagerUI
             {
                 ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
                 comboDataAccess.listOfExpenditures.Add(newName);
-                DataContext = new ViewModel(comboDataAccess);
-                
+                DataContext = new ViewModel(comboDataAccess); 
             }
             newCategoryName.Text = "";
-            
         }
 
         private bool ValidateForNewCategory(string newCategory)
