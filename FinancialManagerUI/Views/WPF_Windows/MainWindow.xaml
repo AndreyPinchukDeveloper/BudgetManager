@@ -6,7 +6,8 @@
         xmlns:vm="clr-namespace:FinancialManagerUI.ViewModels"
         xmlns:local="clr-namespace:FinancialManagerUI"
         WindowStartupLocation="CenterScreen"
-        Title="{Binding Title}" Height="354" Width="499">
+        Title="{Binding Title, UpdateSourceTrigger = PropertyChanged}" Height="354" Width="499">
+    
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
@@ -28,9 +29,9 @@
             
             <Label Content="Your own amount of money: " 
                    HorizontalAlignment="Left" VerticalAlignment="Top"
-                   Margin="161,14,0,0"/>
+                   Margin="161,14,0,0" Height="25" Width="160"/>
 
-            <TextBox x:Name="MyOwnMoney"  Width="120" Text="0"
+            <TextBox x:Name="MyOwnMoney"  Width="120" Text="{Binding MyBudget, UpdateSourceTrigger = PropertyChanged}"
                      HorizontalAlignment="Left" VerticalAlignment="Top"
                       Margin="172,53,0,0" TextWrapping="Wrap" />
         </Grid>

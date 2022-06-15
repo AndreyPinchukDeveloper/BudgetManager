@@ -7,6 +7,11 @@
         xmlns:local="clr-namespace:FinancialManagerUI"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="RecieptMenuWindow" Height="350" Width="510">
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -46,6 +51,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
+                       
         </Grid>
 
         <Grid x:Name="AddReciept" Grid.Row="1">
@@ -61,13 +67,21 @@
                     Margin="266,99,0,0" Width="125" Height="68"
                     Click="Button_Click" />
 
-            <TextBox x:Name="amountToIncrement" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top"
-                     Margin="10,41,0,0" TextWrapping="Wrap"  
-                     Width="135" Height="18"/>
+            <TextBox Text="{Binding AmountOfRecieptOrExpenditure, UpdateSourceTrigger=PropertyChanged}" x:Name="amountToIncrement"  HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="10,41,0,0"  
+                     Width="135" Height="18">
+                <TextBox.DataContext>
+                    <vm:MainWindowViewModel/>
+                </TextBox.DataContext>
+            </TextBox>
 
-            <TextBox x:Name="recieptNotes" HorizontalAlignment="Left" VerticalAlignment="Top"
+            <TextBox Text="{Binding NoteForRecieptOrExpenditure, UpdateSourceTrigger = PropertyChanged}" x:Name="recieptNotes"   HorizontalAlignment="Left" VerticalAlignment="Top"
                      Margin="10,113,0,0" TextWrapping="Wrap"  
-                     Width="221" Height="54"/>
+                     Width="221" Height="54">
+                <TextBox.DataContext>
+                    <vm:MainWindowViewModel/>
+                </TextBox.DataContext>
+            </TextBox>
 
             <Label Content="Enter amount of money : " Margin="10,10,0,0" 
                    HorizontalAlignment="Left" VerticalAlignment="Top" 
