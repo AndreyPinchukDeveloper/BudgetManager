@@ -1,0 +1,82 @@
+﻿<Window x:Class="FinancialManagerUI.RecieptMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:FinancialManagerUI.ViewModels"
+        xmlns:local="clr-namespace:FinancialManagerUI"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="RecieptMenuWindow" Height="350" Width="510">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="124"/>
+            <RowDefinition Height="226"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="CategoryMenu" Grid.Row="0">
+            <Button x:Name="AddYourOwnCategory" Content="AddYourOwnCategory" Margin="318,75,0,0" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Height="25" Width="165" Click="AddYourOwnCategory_Click"/>
+
+            <Label Content="You can add your own category" Margin="290,10,21,87"
+                   HorizontalAlignment="Right" VerticalAlignment="Top"/>
+
+            <Label Content="Choose one of the list or add your own category" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top"   
+                   Margin="9,9,0,0" Height="26" Width="269"/>
+
+            <TextBox Text="{Binding NewCategory, UpdateSourceTrigger = PropertyChanged}" x:Name="addNewRecieptCategory" 
+                     HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Margin="318,49,0,0" TextWrapping="Wrap" 
+                     Width="165" Height="21">
+                <TextBox.DataContext>
+                    <vm:MainWindowViewModel/>
+                </TextBox.DataContext>
+            </TextBox>
+
+            <ComboBox x:Name="cbReciepts" ItemsSource="{Binding Reciepts}" Margin="10,49,280,53">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding FullName}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+
+        <Grid x:Name="AddReciept" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Margin="266,99,0,0" Width="125" Height="68"
+                    Click="Button_Click" />
+
+            <TextBox x:Name="amountToIncrement" Text="0" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="10,41,0,0" TextWrapping="Wrap"  
+                     Width="135" Height="18"/>
+
+            <TextBox x:Name="recieptNotes" HorizontalAlignment="Left" VerticalAlignment="Top"
+                     Margin="10,113,0,0" TextWrapping="Wrap"  
+                     Width="221" Height="54"/>
+
+            <Label Content="Enter amount of money : " Margin="10,10,0,0" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Height="26" Width="145"/>
+
+            <Label Content="Enter notes if necessary :" Margin="8,76,0,0" 
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Height="32" Width="140"/>
+        </Grid>
+
+    </Grid>
+</Window>

@@ -65,14 +65,14 @@ namespace FinancialManagerUI
 
         private void AddYourOwnCategory_Click(object sender, RoutedEventArgs e)
         {
-            string newName = newCategoryName.Text;
+            string newName = addNewCategory.Text;
             if (ValidateForNewCategory(newName))
             {
                 ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
                 comboDataAccess.listOfExpenditures.Add(newName);
                 DataContext = new ViewModel(comboDataAccess); 
             }
-            newCategoryName.Text = "";
+            addNewCategory.Text = "";
         }
 
         private bool ValidateForNewCategory(string newCategory)
