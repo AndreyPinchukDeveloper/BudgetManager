@@ -4,13 +4,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:FinancialManagerUI.ViewModels"
-        xmlns:local="clr-namespace:FinancialManagerUI"
+        xmlns:local="clr-namespace:FinancialManagerUI" 
+        xmlns:cmd="clr-namespace:FinancialManagerUI.Infrastructure.Commands.Base"
         WindowStartupLocation="CenterScreen"
         Title="{Binding Title, UpdateSourceTrigger = PropertyChanged}" Height="354" Width="499">
     
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <cmd:CloseApplicationCommand x:Key="CloseApplicationCommand"/>
+    </Window.Resources>
 
     <Grid>
 
@@ -74,7 +78,11 @@
             <Button x:Name="History" Content="ShowAllHistoryOfOperation" 
                     HorizontalAlignment="Left" VerticalAlignment="Top" 
                     Margin="321,10,0,0" Click="History_Click"/>
-            
+
+            <Button x:Name="CloseApp" Content="Close" 
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                    Command="{StaticResource CloseApplicationCommand}"/>
+
         </Grid>
         
     </Grid>

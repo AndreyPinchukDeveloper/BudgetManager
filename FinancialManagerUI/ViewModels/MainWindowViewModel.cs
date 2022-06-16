@@ -1,9 +1,7 @@
-﻿using FinancialManagerUI.ViewModels.Base;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FinancialManagerUI.Infrastructure.Commands;
+using FinancialManagerUI.ViewModels.Base;
+using System.Windows;
+using System.Windows.Input;
 
 namespace FinancialManagerUI.ViewModels
 {
@@ -68,5 +66,27 @@ namespace FinancialManagerUI.ViewModels
             set => Set(ref _NoteForRecieptOrExpenditure, value);
         }
         #endregion
+
+        #region Commands
+        #region CloseAplicationCommand
+        public ICommand CloseApplicationCommand { get; }
+
+        private void OnCloseApplicationCommandExecuted(object p)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private bool CanOnCloseApplicationCommandExecute(object p) => true;//because always available
+        #endregion
+
+
+        #endregion
+
+        public MainWindowViewModel()
+        {
+            #region Commands
+            CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanOnCloseApplicationCommandExecute);
+            #endregion
+        }
     }
 }
