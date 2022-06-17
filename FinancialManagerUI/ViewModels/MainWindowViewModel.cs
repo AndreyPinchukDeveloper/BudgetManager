@@ -97,12 +97,10 @@ namespace FinancialManagerUI.ViewModels
         #region Commands
 
         #region Open_WPF_Windows_Commands
-        public ICommand OpenWPFWindowCommand { get; }
-
-        private bool CanOpenWindowExecute(object p) => true;
-        private void OnOpenWindowExecuted(object p)
+        private LambdaCommand openWindow;
+        public LambdaCommand OpenExpenditureWindowCommand
         {
-            OpenExpenditureWindow();
+            get{ return openWindow ?? new LambdaCommand(obj => { OpenExpenditureWindow(); }); }
         }
         //TODO - command for all 3 windows here
         #endregion
@@ -126,7 +124,6 @@ namespace FinancialManagerUI.ViewModels
         {
             #region Commands
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanOnCloseApplicationCommandExecute);
-            OpenWPFWindowCommand = new LambdaCommand(OnOpenWindowExecuted, CanOpenWindowExecute);
             #endregion
         }
     }

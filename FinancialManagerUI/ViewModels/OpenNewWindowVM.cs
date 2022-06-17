@@ -15,8 +15,5 @@ namespace FinancialManagerUI.ViewModels
     {
         #region
         #endregion
-
-        
-
     }
 }

@@ -12,8 +12,8 @@ namespace FinancialManagerUI
         //TODO - value of my purse from database
         private void Increment_Click(object sender, RoutedEventArgs e)
         {
-            /*RecieptMenuWindow recieptMenuWindow = new RecieptMenuWindow();
-            recieptMenuWindow.Show();*/
+            RecieptMenuWindow recieptMenuWindow = new RecieptMenuWindow();
+            recieptMenuWindow.Show();
         }
 
         private void Decrement_Click(object sender, RoutedEventArgs e)
