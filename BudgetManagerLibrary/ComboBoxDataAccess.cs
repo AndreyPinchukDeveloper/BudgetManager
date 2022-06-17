@@ -1,16 +1,11 @@
 ﻿using BudgetManagerLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BudgetManagerLibrary
 {
     public class ComboBoxDataAccess
     {
-        Random random = new Random();
-        int count = 0;
+        private int count { get; set; }
+        //private int 
 
         public List<string> listOfExpenditures = new List<string>
         {

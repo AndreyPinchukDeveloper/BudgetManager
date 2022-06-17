@@ -1,17 +1,14 @@
 ﻿using BudgetManagerLibrary.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BudgetManagerLibrary.DataAccess.TextHelpers;
-using BudgetManagerLibrary.Models;
 
 namespace BudgetManagerLibrary.DataAccess
 {
     public class TextConnector : IDataConnection
     {
         private const string ModelsFile = "MoneyModel.csv";
+        /// <summary>
+        /// Save data changes in the text file
+        /// </summary>
         public MoneyModel CreateChange(MoneyModel model)
         {
             // Load text file

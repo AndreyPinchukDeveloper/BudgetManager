@@ -26,11 +26,5 @@
             decimal.TryParse(valueOfMoney, out amountOfMoney);
             ValueOfMoney = amountOfMoney;
         }
-        public MoneyModel(string valueOfMoney)
-        {
-            decimal amountOfMoney = 0;
-            decimal.TryParse(valueOfMoney, out amountOfMoney);
-            ValueOfMoney = amountOfMoney;
-        }
     }
 }

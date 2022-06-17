@@ -1,5 +1,6 @@
 ﻿using FinancialManagerUI.Infrastructure.Commands;
 using FinancialManagerUI.ViewModels.Base;
+using GalaSoft.MvvmLight.Command;
 using System.Windows;
 using System.Windows.Input;
 
@@ -7,6 +8,33 @@ namespace FinancialManagerUI.ViewModels
 {
     internal class MainWindowViewModel:ViewModelBase
     {
+        #region Open_WPF_Windows
+        private void OpenExpenditureWindow()
+        {
+            ExpenditureMenuWindow expenditureMenuWindow = new ExpenditureMenuWindow();
+            OpenWindow(expenditureMenuWindow);
+        }
+
+        private void OpenRecieptWindow()
+        {
+            RecieptMenuWindow recieptMenuWindow = new RecieptMenuWindow();
+            OpenWindow(recieptMenuWindow);
+        }
+
+        private void OpenHistoryWindow()
+        {
+            HistoryWindow historyWindow = new HistoryWindow();
+            OpenWindow(historyWindow);
+        }
+
+        private void OpenWindow(Window window)
+        {
+            window.Owner = Application.Current.MainWindow;
+            window.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            window.ShowDialog();
+        }
+        #endregion
+
         #region NameOfApp
         private string _Title = "My Purse";
         /// <summary>
@@ -68,6 +96,13 @@ namespace FinancialManagerUI.ViewModels
         #endregion
 
         #region Commands
+
+        #region Open_WPF_Windows_Commands
+        public ICommand OpenWPFWindowCommand { get; }
+        //TODO - command for all 3 windows here
+        #endregion
+
+
         #region CloseAplicationCommand
         public ICommand CloseApplicationCommand { get; }
 

@@ -1,9 +1,4 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BudgetManagerLibrary.Models;
 using BudgetManagerLibrary;
 
@@ -14,6 +9,9 @@ namespace FinancialManagerUI.ViewModels
         public BindableCollection<MoneyModel> Expenditures { get; set; }
         public BindableCollection<MoneyModel> Reciepts { get; set; }
 
+        /// <summary>
+        /// Start expenditures and reciepts lists add to ComboBox
+        /// </summary>
         public ViewModel()
         {
             ComboBoxDataAccess da = new ComboBoxDataAccess();
@@ -21,6 +19,9 @@ namespace FinancialManagerUI.ViewModels
             Reciepts = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfReciepts.Count, da.listOfReciepts, da.listOfReciepts.Count));
         }
 
+        /// <summary>
+        /// That constructor call if user want to add new item of reciept or expenditure
+        /// </summary>
         public ViewModel(ComboBoxDataAccess comboBoxData)
         {
             Expenditures = new BindableCollection<MoneyModel>(comboBoxData.GetRecieptList(comboBoxData.listOfExpenditures.Count, comboBoxData.listOfExpenditures, comboBoxData.listOfReciepts.Count));

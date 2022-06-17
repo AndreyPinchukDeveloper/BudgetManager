@@ -5,7 +5,7 @@ namespace BudgetManagerLibrary
 {
     public static class GlobalConfig
     {
-        public static IDataConnection Connection { get; private set; }
+        public static IDataConnection? Connection { get; private set; }
         
         public static void InitializeConnections(DatabaseType db)
         {
