@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:FinancialManagerUI.ViewModels"
         xmlns:cmd="clr-namespace:FinancialManagerUI.Infrastructure.Commands.Base"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
         WindowStartupLocation="CenterScreen"
         Title="{Binding Title, UpdateSourceTrigger = PropertyChanged}" Height="350" Width="510">
 

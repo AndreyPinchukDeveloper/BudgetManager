@@ -13,7 +13,7 @@ namespace FinancialManagerUI
         public ExpenditureMenuWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
+            DataContext = new MainWindowViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -55,7 +55,7 @@ namespace FinancialManagerUI
             {
                 ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
                 comboDataAccess.listOfExpenditures.Add(newName);
-                DataContext = new ViewModel(comboDataAccess); 
+                DataContext = new MainWindowViewModel(comboDataAccess); 
             }
             addNewCategory.Text = "";
         }

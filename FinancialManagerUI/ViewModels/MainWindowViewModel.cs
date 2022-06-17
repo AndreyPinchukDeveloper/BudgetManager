@@ -1,4 +1,7 @@
-﻿using FinancialManagerUI.Infrastructure.Commands;
+﻿using BudgetManagerLibrary;
+using BudgetManagerLibrary.Models;
+using Caliburn.Micro;
+using FinancialManagerUI.Infrastructure.Commands;
 using FinancialManagerUI.ViewModels.Base;
 using System.Windows;
 using System.Windows.Input;
@@ -132,11 +135,30 @@ namespace FinancialManagerUI.ViewModels
 
         #endregion
 
+        public BindableCollection<MoneyModel> Expenditures { get; set; }
+        public BindableCollection<MoneyModel> Reciepts { get; set; }
+
+        /// <summary>
+        /// Start expenditures and reciepts lists add to ComboBox
+        /// </summary>
         public MainWindowViewModel()
         {
             #region Commands
             CloseApplicationCommand = new LambdaCommand(OnCloseApplicationCommandExecuted, CanOnCloseApplicationCommandExecute);
             #endregion
+
+            ComboBoxDataAccess da = new ComboBoxDataAccess();
+            Expenditures = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfExpenditures.Count, da.listOfExpenditures, da.listOfReciepts.Count));
+            Reciepts = new BindableCollection<MoneyModel>(da.GetRecieptList(da.listOfReciepts.Count, da.listOfReciepts, da.listOfReciepts.Count));
+        }
+
+        /// <summary>
+        /// That constructor call if user want to add new item of reciept or expenditure
+        /// </summary>
+        public MainWindowViewModel(ComboBoxDataAccess comboBoxData)
+        {
+            Expenditures = new BindableCollection<MoneyModel>(comboBoxData.GetRecieptList(comboBoxData.listOfExpenditures.Count, comboBoxData.listOfExpenditures, comboBoxData.listOfReciepts.Count));
+            Reciepts = new BindableCollection<MoneyModel>(comboBoxData.GetRecieptList(comboBoxData.listOfReciepts.Count, comboBoxData.listOfReciepts, comboBoxData.listOfReciepts.Count));
         }
     }
 }

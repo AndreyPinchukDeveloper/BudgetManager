@@ -14,7 +14,7 @@ namespace FinancialManagerUI
         public RecieptMenuWindow()
         {
             InitializeComponent();
-            DataContext = new ViewModel();
+            DataContext = new MainWindowViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace FinancialManagerUI
             {
                 ComboBoxDataAccess comboDataAccess = new ComboBoxDataAccess();
                 comboDataAccess.listOfReciepts.Add(newName);
-                DataContext = new ViewModel(comboDataAccess);
+                DataContext = new MainWindowViewModel(comboDataAccess);
 
             }
             addNewRecieptCategory.Text = "";
