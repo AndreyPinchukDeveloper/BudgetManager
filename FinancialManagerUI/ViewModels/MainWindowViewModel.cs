@@ -97,10 +97,22 @@ namespace FinancialManagerUI.ViewModels
         #region Commands
 
         #region Open_WPF_Windows_Commands
-        private LambdaCommand openWindow;
+        private LambdaCommand openExpenditureWindow;
         public LambdaCommand OpenExpenditureWindowCommand
         {
-            get{ return openWindow ?? new LambdaCommand(obj => { OpenExpenditureWindow(); }); }
+            get{ return openExpenditureWindow ?? new LambdaCommand(obj => { OpenExpenditureWindow(); }); }
+        }
+
+        private LambdaCommand openRecieptWindow;
+        public LambdaCommand OpenRecieptWindowCommand
+        {
+            get { return openRecieptWindow ?? new LambdaCommand(obj => { OpenRecieptWindow(); }); }
+        }
+
+        private LambdaCommand openHistoryWindow;
+        public LambdaCommand OpenHistoryWindowCommand
+        {
+            get { return openHistoryWindow ?? new LambdaCommand(obj => { OpenHistoryWindow(); }); }
         }
         //TODO - command for all 3 windows here
         #endregion
