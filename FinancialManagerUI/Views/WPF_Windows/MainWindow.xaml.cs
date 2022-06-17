@@ -10,17 +10,5 @@ namespace FinancialManagerUI
             InitializeComponent();
         }
         //TODO - value of my purse from database
-
-        private void Decrement_Click(object sender, RoutedEventArgs e)
-        {
-            ExpenditureMenuWindow expenditureMenuWindow = new ExpenditureMenuWindow();
-            expenditureMenuWindow.Show();
-        }
-
-        private void History_Click(object sender, RoutedEventArgs e)
-        {
-            HistoryWindow historyWindow = new HistoryWindow();
-            historyWindow.Show();
-        }
     }
 }
