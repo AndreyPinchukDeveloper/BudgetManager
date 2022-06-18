@@ -1,0 +1,9 @@
+{
+  "Database": {
+    "Type": "MSSQL",
+    "ConnectionString": {
+      "MSSQL": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=BudgetMangerDB.db;Integrated Security=True",
+      "SQLite": "Data Source=d:\\BudgetMangerDB.db"
+    }
+  }
+}

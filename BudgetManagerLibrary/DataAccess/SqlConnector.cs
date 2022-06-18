@@ -23,12 +23,6 @@ namespace BudgetManagerLibrary.DataAccess
                 connection.Execute("dbo.spTable_Operations",p,commandType: CommandType.StoredProcedure);
                 model.Id = p.Get<int>("@Id");
                 return model;
-
-                connection.Execute("spTableOperations", p, commandType: CommandType.StoredProcedure);
-
-                model.Id = p.Get<int>("@Id");
-
-                return model;
             }
         }
     }

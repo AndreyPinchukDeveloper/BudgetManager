@@ -29,10 +29,13 @@ namespace FinancialManagerUI
         /// </summary>
         public static IServiceProvider Services => Host.Services;
 
-        internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
-        {
-            
-        }
+        /// <summary>
+        /// We use this method to connect main model to main window
+        /// </summary>
+        internal static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
+            .AddServices()
+            .AddViewModels()
+        ;
 
         protected override async void OnStartup(StartupEventArgs e)
         {
