@@ -6,6 +6,7 @@
         /// The unique identifier for the money
         /// </summary>
         public int Id { get; set; }
+        //public decimal Purse { get; set; }
         public decimal ValueOfMoney { get; set; }
         public string NameOfChange { get; set; }
         public string Note { get; set; }

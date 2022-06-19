@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinancialManagerUI", "Finan
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BudgetManagerDB", "BudgetManagerDB\BudgetManagerDB.csproj", "{08B2B128-90A1-4655-88D7-3C6B3BC9C541}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PurseManager", "PurseManager\PurseManager.csproj", "{A92597EB-2A15-43EB-B47A-BE69A71DFD35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PurseManager", "PurseManager\PurseManager.csproj", "{A92597EB-2A15-43EB-B47A-BE69A71DFD35}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
